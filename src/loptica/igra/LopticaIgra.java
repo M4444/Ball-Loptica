@@ -26,11 +26,11 @@ public class LopticaIgra extends Application {
     private double g = 9.81;
     private final MyTimer timer = new MyTimer();
     private boolean pauza;
-    private Text pauzaTekst = new Text(310, 300, "PAUSE");
+    private Text pauzaTekst = new Text(310, 300, "PAUZA");
     private int mouseX, mouseY;
-    private static Text skorTekst = new Text(10, 25, "Score: 0");
+    private static Text skorTekst = new Text(10, 25, "Skor: 0");
     private static int skor = 0;
-    private static Text vremeTekst = new Text(550, 25, "Time wasted: 0");
+    private static Text vremeTekst = new Text(550, 25, "Protraceno vreme: 0");
     private static long pocetnoVreme;
     private static boolean pocetnoVremeSet = false;
     private static Text konacnoVremeTekst = new Text(680, 50, "12h 48m 14s");
@@ -48,9 +48,9 @@ public class LopticaIgra extends Application {
             if (!pauza) {
                 pomeriSve(proteklo);
                 String trenutnoVreme = vremeFormat((sada - pocetnoVreme)/1000000000);
-                vremeTekst.setText("Time wasted: " + trenutnoVreme );
+                vremeTekst.setText("Protraceno vreme: " + trenutnoVreme);
                 if (!kraj)
-                    konacnoVremeTekst.setText(trenutnoVreme);
+		    konacnoVremeTekst.setText(trenutnoVreme);
             }
             prethodni = sada;
             if (!pocetnoVremeSet) {
@@ -151,8 +151,7 @@ public class LopticaIgra extends Application {
         //scene.setOnMouseReleased(this::onMouseReleased);
         scene.setOnKeyPressed(e -> onKeyPressed(e));
         scene.setOnKeyReleased(e -> onKeyReleased(e));
-
-        primaryStage.setTitle("Balls");
+        primaryStage.setTitle("Loptica");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.sizeToScene();
@@ -224,9 +223,9 @@ public class LopticaIgra extends Application {
         plocice.remove(p);
         root.getChildren().remove(p);
         skor += 10;
-        skorTekst.setText("Score: " + skor);
+        skorTekst.setText("Skor: " + skor);
         if (plocice.isEmpty()) {
-            Text pobeda = new Text(325, 40, "YOU WIN!");
+            Text pobeda = new Text(325, 40, "POBEDA!");
             pobeda.setFont(new Font("Comic Sans MS", 30));
             pobeda.setFill(new Color(0, 1, 0, 1));
             kraj = true;
