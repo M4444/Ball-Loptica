@@ -1,15 +1,14 @@
 package loptica.igra;
 
-
 public class Vektor
 {
-    private double	x, y;	// projekcije vektora na ose
-		
+    private double x, y; // projekcije vektora na ose
+
     public Vektor(double _x, double _y)
     {
         x = _x; y = _y;
     }
-	
+
     public void x(double nx)
     {
         x = nx;
@@ -20,9 +19,15 @@ public class Vektor
         y = ny;
     }
 
-    public double x() { return x; }
+    public double x()
+    {
+        return x;
+    }
 
-    public double y() {	return y; }
+    public double y()
+    {
+        return y;
+    }
 
     public Vektor mnozi(double t)
     {
@@ -35,7 +40,7 @@ public class Vektor
     {
         return new Vektor(x*t, y*t);
     }
-    
+
     public Vektor pomnozi(double t)
     {
         x *= t;
@@ -49,12 +54,12 @@ public class Vektor
         y += v.y;
         return this;
     }
-    
+
     public Vektor produzi(double r)
     {
-        double r0 = Math.sqrt(x*x+y*y);
-        double ratio = (r+r0)/r0;
-        
+        double r0 = Math.sqrt(x*x + y*y);
+        double ratio = (r + r0)/r0;
+
         return pomnozi(ratio);
     }
 
