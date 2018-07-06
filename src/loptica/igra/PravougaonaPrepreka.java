@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+
 package loptica.igra;
 
 import javafx.scene.paint.Color;
