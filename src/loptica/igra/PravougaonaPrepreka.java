@@ -15,14 +15,14 @@ public class PravougaonaPrepreka extends Rectangle implements Prepreka {
     protected double ubrzajLevo = 0;
     protected double ubrzajDesno = 0;
 
-    public PravougaonaPrepreka(double width, double hight)
+    public PravougaonaPrepreka(double width, double height)
     {
-        super(width, hight);
+        super(width, height);
     }
 
-    public PravougaonaPrepreka(double x, double y, double width, double hight)
+    public PravougaonaPrepreka(double x, double y, double width, double height)
     {
-        super(x, y, width, hight);
+        super(x, y, width, height);
     }
 
     @Override
