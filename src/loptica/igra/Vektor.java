@@ -35,7 +35,19 @@ public class Vektor
         return y;
     }
 
-    public Vektor mnozi(double t)
+    public Vektor dodaj(Vektor v)
+    {
+        x += v.x;
+        y += v.y;
+        return this;
+    }
+
+    public Vektor zbir(Vektor v)
+    {
+        return new Vektor(x+v.x, y+v.y);
+    }
+
+    public Vektor pomnozi(double t)
     {
         x *= t;
         y *= t;
@@ -47,30 +59,11 @@ public class Vektor
         return new Vektor(x*t, y*t);
     }
 
-    public Vektor pomnozi(double t)
-    {
-        x *= t;
-        y *= t;
-        return this;
-    }
-
-    public Vektor dodaj(Vektor v)
-    {
-        x += v.x;
-        y += v.y;
-        return this;
-    }
-
     public Vektor produzi(double r)
     {
         double r0 = Math.sqrt(x*x + y*y);
         double ratio = (r + r0)/r0;
 
         return pomnozi(ratio);
-    }
-
-    public Vektor zbir(Vektor v)
-    {
-        return new Vektor(x+v.x, y+v.y);
     }
 }
