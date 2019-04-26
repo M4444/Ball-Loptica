@@ -13,9 +13,9 @@ import javafx.scene.shape.Rectangle;
 
 public class Platforma extends PravougaonaPrepreka
 {
-    private static final double debljina = 15;
-    private static final double poc_velicina = 100;
-    private static final double brzina_kretanja = 200;
+    private static final double DEBLJINA = 15;
+    private static final double POC_VELICINA = 100;
+    private static final double BRZINA_KRETANJA = 200;
 
     private double pozicija; // centar pravouganoika na x osi
     private double velicina; // mora uvek da bude u granicama ekrana
@@ -28,13 +28,13 @@ public class Platforma extends PravougaonaPrepreka
 
     public Platforma(double poc_pozicijaX, double poc_pozicijaY)
     {
-        super(poc_velicina, debljina);
+        super(POC_VELICINA, DEBLJINA);
         ubrzajDole = 5;
         ubrzajLevo = -3;
         ubrzajDesno = -3;
 
         pozicija = poc_pozicijaX;
-        velicina = poc_velicina;
+        velicina = POC_VELICINA;
         brzina = 0;
         pomLevo = false;
         pomDesno = false;
@@ -54,10 +54,10 @@ public class Platforma extends PravougaonaPrepreka
 
         celaPlatforma.getChildren().addAll(donjaLinija, levaLinija, desnaLinija);
 
-        celaPlatforma.setTranslateX(pozicija - poc_velicina/2);
-        celaPlatforma.setTranslateY(poc_pozicijaY - debljina/2);
-        setTranslateX(pozicija - poc_velicina/2);
-        setTranslateY(poc_pozicijaY - debljina/2);
+        celaPlatforma.setTranslateX(pozicija - POC_VELICINA/2);
+        celaPlatforma.setTranslateY(poc_pozicijaY - DEBLJINA/2);
+        setTranslateX(pozicija - POC_VELICINA/2);
+        setTranslateY(poc_pozicijaY - DEBLJINA/2);
     }
 
     public Group getGroup()
@@ -86,20 +86,20 @@ public class Platforma extends PravougaonaPrepreka
     public void pomerajLevo()
     {
         if (brzina == 0) {
-            brzina = -brzina_kretanja;
+            brzina = -BRZINA_KRETANJA;
             pomLevo = true;
         } else {
-            brzina = -brzina_kretanja;
+            brzina = -BRZINA_KRETANJA;
         }
     }
 
     public void pomerajDesno()
     {
         if (brzina == 0) {
-            brzina = brzina_kretanja;
+            brzina = BRZINA_KRETANJA;
             pomDesno = true;
         } else {
-            brzina = brzina_kretanja;
+            brzina = BRZINA_KRETANJA;
         }
     }
 
@@ -114,7 +114,7 @@ public class Platforma extends PravougaonaPrepreka
                 pomDesno = true;
             }
         } else {
-            brzina = brzina_kretanja;
+            brzina = BRZINA_KRETANJA;
         }
     }
 
@@ -129,7 +129,7 @@ public class Platforma extends PravougaonaPrepreka
                 pomLevo = true;
             }
         } else {
-            brzina = -brzina_kretanja;
+            brzina = -BRZINA_KRETANJA;
         }
     }
 
@@ -141,11 +141,11 @@ public class Platforma extends PravougaonaPrepreka
             pozicija = granica.getX() + velicina/2;
         }
 
-        if(pozicija + velicina/2 > granica.getX() + granica.getWidth()) {
+        if (pozicija + velicina/2 > granica.getX() + granica.getWidth()) {
             pozicija = granica.getX() + granica.getWidth() - velicina/2;
         }
 
-        celaPlatforma.setTranslateX(pozicija - poc_velicina/2);
-        setTranslateX(pozicija - poc_velicina/2);
+        celaPlatforma.setTranslateX(pozicija - POC_VELICINA/2);
+        setTranslateX(pozicija - POC_VELICINA/2);
     }
 }

@@ -6,10 +6,9 @@
 
 package loptica.igra;
 
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
-public class PravougaonaPrepreka extends Rectangle implements Prepreka{
+public class PravougaonaPrepreka extends Rectangle implements Prepreka {
     // faktori ubrzanja
     protected double ubrzajDole = 0;
     protected double ubrzajGore = 0;
