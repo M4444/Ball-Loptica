@@ -36,7 +36,7 @@ public class LopticaIgra extends Application {
     private int mouseX, mouseY;
     private static Text skorTekst = new Text(10, 25, "Skor: 0");
     private static int skor = 0;
-    private static Text vremeTekst = new Text(503, 25, "Protraćeno vreme: 0");
+    private static Text vremeTekst = new Text(503, 25, "Protraćeno vreme: 0s");
     private static long pocetnoVreme;
     private static boolean pocetnoVremeSet = false;
     private static Text konacnoVremeTekst = new Text(680, 50, "12h 48m 14s");
@@ -51,7 +51,7 @@ public class LopticaIgra extends Application {
             if (prethodni == 0)
                 prethodni = sada;
             float proteklo = (sada - prethodni)/1e9f; // pretvoreno u s
-            if (!pauza) {
+            if (!pauza && pocetnoVremeSet) {
                 pomeriSve(proteklo);
                 String trenutnoVreme = vremeFormat((sada - pocetnoVreme)/1000000000);
                 vremeTekst.setText("Protraćeno vreme: " + trenutnoVreme);
