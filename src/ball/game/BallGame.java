@@ -36,7 +36,7 @@ public class BallGame extends Application {
     private int mouseX, mouseY;
     private static Text scoreText = new Text(10, 25, "Score: 0");
     private static int score = 0;
-    private static Text timeText = new Text(550, 25, "Time wasted: 0");
+    private static Text timeText = new Text(550, 25, "Time wasted: 0s");
     private static long elapsedTime;
     private static boolean startTimeSet = false;
     private static Text finalTimeText = new Text(680, 50, "12h 48m 14s");
@@ -51,7 +51,7 @@ public class BallGame extends Application {
             if (previous == 0)
                 previous = now;
             float elapsed = (now - previous)/1e9f; // converted to s
-            if (!pause) {
+            if (!pause && startTimeSet) {
                 moveEverything(elapsed);
                 String currentTime = formatTime((now - elapsedTime)/1000000000);
                 timeText.setText("Time wasted: " + currentTime);
