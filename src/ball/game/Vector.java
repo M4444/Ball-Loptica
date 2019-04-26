@@ -4,13 +4,13 @@
  * SPDX-License-Identifier: GPL-2.0-only
  */
 
-package loptica.igra;
+package ball.game;
 
-public class Vektor
+public class Vector
 {
-    private double x, y; // projekcije vektora na ose
+    private double x, y; // vector projection onto the axes
 
-    public Vektor(double _x, double _y)
+    public Vector(double _x, double _y)
     {
         x = _x; y = _y;
     }
@@ -35,35 +35,35 @@ public class Vektor
         return y;
     }
 
-    public Vektor dodaj(Vektor v)
+    public Vector add(Vector v)
     {
         x += v.x;
         y += v.y;
         return this;
     }
 
-    public Vektor zbir(Vektor v)
+    public Vector sum(Vector v)
     {
-        return new Vektor(x+v.x, y+v.y);
+        return new Vector(x+v.x, y+v.y);
     }
 
-    public Vektor pomnozi(double t)
+    public Vector multiply(double t)
     {
         x *= t;
         y *= t;
         return this;
     }
 
-    public Vektor proizvod(double t)
+    public Vector product(double t)
     {
-        return new Vektor(x*t, y*t);
+        return new Vector(x*t, y*t);
     }
 
-    public Vektor produzi(double r)
+    public Vector lengthen(double r)
     {
         double r0 = Math.sqrt(x*x + y*y);
         double ratio = (r + r0)/r0;
 
-        return pomnozi(ratio);
+        return multiply(ratio);
     }
 }
