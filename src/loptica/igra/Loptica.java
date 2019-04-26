@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.CycleMethod;
-import javafx.scene.paint.LinearGradient;
 import javafx.scene.paint.RadialGradient;
 import javafx.scene.paint.Stop;
 import javafx.scene.shape.Circle;
@@ -28,14 +27,14 @@ public class Loptica extends Circle
     {
         super(pp);
 
-        Stop[] stops = { new Stop(0, b1), new Stop(1, b2 ) };
+        Stop[] stops = { new Stop(0, b1), new Stop(1, b2) };
         //setFill(new LinearGradient(-pp, 0, pp, 0, false, CycleMethod.NO_CYCLE, stops));
         setFill(new RadialGradient(0, 0, pp/3, pp/3, pp/2*3, false, CycleMethod.NO_CYCLE, stops));
 
         brzina_rotacije = (Math.random() + 0.5) * 180.0/Math.PI;
         pozicija = poc_pozicija;
         brzina = poc_brzina;
-        ubrzanje = new Vektor(0,0);
+        ubrzanje = new Vektor(0, 0);
         setTranslateX(pozicija.x());
         setTranslateY(pozicija.y());
     }
@@ -101,7 +100,7 @@ public class Loptica extends Circle
             brzina.produzi(1);
         }
 
-        if (pozicija.x() + getRadius() > granica.getX()+granica.getWidth()){
+        if (pozicija.x() + getRadius() > granica.getX()+granica.getWidth()) {
             odbijKaLevo(granica.getX() + granica.getWidth());
             brzina.produzi(1);
         }
@@ -117,7 +116,7 @@ public class Loptica extends Circle
         }
 
         if (listaPrepreka != null) {
-            Plocica zaIzbacivaje ;
+            Plocica zaIzbacivaje;
             for (Plocica p: listaPrepreka) {
                 if (p.odbij(this)) {
                     zaIzbacivaje = p;
@@ -134,7 +133,7 @@ public class Loptica extends Circle
         if (platforma != null)
             platforma.odbij(this);
 
-        //if(pozicija.x() == this.getCenterX()) this.setFill(Color.GREEN);
+        //if (pozicija.x() == this.getCenterX()) this.setFill(Color.GREEN);
 
         setTranslateX(pozicija.x());
         setTranslateY(pozicija.y());

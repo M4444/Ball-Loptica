@@ -32,7 +32,7 @@ public class LopticaIgra extends Application {
     private double g = 9.81;
     private final MyTimer timer = new MyTimer();
     private boolean pauza;
-    private Text pauzaTekst = new Text(310, 300, "PAUZA");
+    private final Text pauzaTekst = new Text(310, 300, "PAUZA");
     private int mouseX, mouseY;
     private static Text skorTekst = new Text(10, 25, "Skor: 0");
     private static int skor = 0;
@@ -56,7 +56,7 @@ public class LopticaIgra extends Application {
                 String trenutnoVreme = vremeFormat((sada - pocetnoVreme)/1000000000);
                 vremeTekst.setText("Protraćeno vreme: " + trenutnoVreme);
                 if (!kraj)
-		    konacnoVremeTekst.setText(trenutnoVreme);
+                    konacnoVremeTekst.setText(trenutnoVreme);
             }
             prethodni = sada;
             if (!pocetnoVremeSet) {
@@ -181,14 +181,14 @@ public class LopticaIgra extends Application {
         int y2 = (int)Math.max(mouseY, e.getSceneY());
 
         granica.setX(x1);
-	granica.setY(y1);
+        granica.setY(y1);
         granica.setWidth(x2 - x1);
-	granica.setHeight(y2 - y1);
+        granica.setHeight(y2 - y1);
     }
 
     private void onKeyPressed(KeyEvent e)
     {
-        switch(e.getCode()) {
+        switch (e.getCode()) {
             case UP:
                 g += 1;
                 break;
@@ -198,7 +198,7 @@ public class LopticaIgra extends Application {
                 break;
         }
 
-        switch(e.getCode()) {
+        switch (e.getCode()) {
             case LEFT:
                 platforma.pomerajLevo();
                 break;
@@ -214,7 +214,7 @@ public class LopticaIgra extends Application {
 
     private void onKeyReleased(KeyEvent e)
     {
-        switch(e.getCode()){
+        switch (e.getCode()) {
             case LEFT:
                 platforma.zaustaviLevo();
                 break;

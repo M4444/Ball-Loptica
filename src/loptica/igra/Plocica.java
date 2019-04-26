@@ -9,13 +9,13 @@ package loptica.igra;
 import javafx.scene.paint.Color;
 
 public class Plocica extends PravougaonaPrepreka {
-    private static final double visPloc = 20;
-    private static final double sirPloc = 35;
+    private static final double VIS_PLOC = 20;
+    private static final double SIR_PLOC = 35;
 
     public Plocica(int MpozX, int MpozY)
     {
-        //super(pozX, pozY, sirPloc, visPloc);
-        super(MpozX*sirPloc, MpozY*visPloc, sirPloc, visPloc);
+        //super(pozX, pozY, SIR_PLOC, VIS_PLOC);
+        super(MpozX*SIR_PLOC, MpozY*VIS_PLOC, SIR_PLOC, VIS_PLOC);
         this.setFill(new Color((float)Math.random(), (float)Math.random(), (float)Math.random(), 1));
     }
 }
